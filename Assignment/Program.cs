@@ -34,15 +34,65 @@
             #endregion
 
             #region Question 03
-           
-            INotificationService emailService = new EmailNotificationService();
-            INotificationService smsService = new SmsNotificationService();
-            INotificationService pushService = new PushNotificationService();
 
-            emailService.SendNotification("user@example.com", "Hello via Email!");
-            smsService.SendNotification("+1234567890", "Hello via SMS!");
-            pushService.SendNotification("device123", "Hello via Push Notification!");
+            //INotificationService emailService = new EmailNotificationService();
+            //INotificationService smsService = new SmsNotificationService();
+            //INotificationService pushService = new PushNotificationService();
+
+            //emailService.SendNotification("user@example.com", "Hello via Email!");
+            //smsService.SendNotification("+1234567890", "Hello via SMS!");
+            //pushService.SendNotification("device123", "Hello via Push Notification!");
             #endregion
+
+            #region Question 04
+           
+
+         
+            Console.WriteLine("Enter user type (Regular/Premium/Guest):");
+            string userType = Console.ReadLine();
+
+            Console.WriteLine("Enter product price:");
+            decimal price = decimal.Parse(Console.ReadLine());
+            Console.WriteLine("Enter product quantity:");
+            int quantity = int.Parse(Console.ReadLine());
+
+         
+            User user;
+            switch (userType.ToLower())
+            {
+                case "regular":
+                    user = new RegularUser();
+                    break;
+                case "premium":
+                    user = new PremiumUser();
+                    break;
+                case "guest":
+                    user = new GuestUser();
+                    break;
+                default:
+                    Console.WriteLine("Invalid user type. Defaulting to Guest.");
+                    user = new GuestUser();
+                    break;
+            }
+
+          
+            Discount discount = user.GetDiscount();
+            decimal discountAmount = discount?.CalculateDiscount(price, quantity) ?? 0;
+            decimal total = (price * quantity) - discountAmount;
+
+          
+            if (discount != null)
+            {
+                Console.WriteLine($"Discount Applied: {discount.Name}");
+                Console.WriteLine($"Discount Amount: {discountAmount:C}");
+            }
+            else
+            {
+                Console.WriteLine("No discount applied");
+            }
+            Console.WriteLine($"Total After Discount: {total:C}");
+            #endregion
+
         }
     }
 }
