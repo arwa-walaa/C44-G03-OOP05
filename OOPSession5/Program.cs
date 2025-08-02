@@ -1,4 +1,5 @@
 ﻿using OOPSession5.Binding;
+using OOPSession5.Example01Interface;
 using OOPSession5.Interface;
 
 
@@ -36,6 +37,26 @@ namespace OOPSession5
         }
         #endregion
 
+        #region Inface EX 01
+        static void SeriesToPrintFiveNums(ISeries series)
+        {
+            if (series is not null)
+            {
+                for (int i = 1; i < 6; i++)
+                {
+                    Console.WriteLine(series.Current);
+                    series.GetNextValue();
+
+                }
+                series.ResetSeries();
+            }
+            else { 
+                return;
+            }
+        }
+
+        #endregion
+
         static void Main(string[] args)
         {
             #region Binding
@@ -67,6 +88,14 @@ namespace OOPSession5
             //typeIO.MyProperty = 200;
             //typeIO.MyMethod();
             ////typeIO.print(); 
+            #endregion
+
+            #region Ex 01 Interface 
+            SeriesOne seriesOne = new SeriesOne();   
+            //SeriesToPrintFiveNums(seriesOne);
+            SeriesTow seriesTow = new SeriesTow();
+            SeriesToPrintFiveNums(seriesTow);
+
             #endregion
 
 
