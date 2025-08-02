@@ -1,4 +1,5 @@
-﻿using OOPSession5.Binding;
+﻿using OOPSession5.Abstraction;
+using OOPSession5.Binding;
 using OOPSession5.BuiltInIo;
 using OOPSession5.Example01Interface;
 using OOPSession5.Example02Interface;
@@ -182,12 +183,35 @@ namespace OOPSession5
             //sort pased on name
             Array.Sort(users, new UserNameComparer());
 
-            foreach (User user in users)
-            {
-                Console.WriteLine(user);
-            }
+            //foreach (User user in users)
+            //{
+            //    Console.WriteLine(user);
+            //}
 
             #endregion
+
+            #endregion
+
+            #region Abstraction
+
+            //Shape circle = new Shape();
+            Shape rect= new Rectangle()
+            {
+                Dim01 = 10,
+                Dim02 = 5
+            };
+
+            decimal area = rect.CalculateArea();
+            Console.WriteLine($"Rectangle Area: {area}");
+
+            decimal perimeter = rect.Perimeter;
+            Console.WriteLine($"Rectangle Perimeter: {perimeter}");
+
+            Circle circle = new Circle(10);
+            area = circle.CalculateArea();
+            Console.WriteLine($"Circle Area: {area}");
+            perimeter = circle.Perimeter;
+            Console.WriteLine($"Circle Perimeter: {perimeter}");
 
             #endregion
 
