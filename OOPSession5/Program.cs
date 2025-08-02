@@ -1,5 +1,6 @@
 ﻿using OOPSession5.Binding;
 using OOPSession5.Example01Interface;
+using OOPSession5.Example02Interface;
 using OOPSession5.Interface;
 
 
@@ -91,10 +92,32 @@ namespace OOPSession5
             #endregion
 
             #region Ex 01 Interface 
-            SeriesOne seriesOne = new SeriesOne();   
-            //SeriesToPrintFiveNums(seriesOne);
-            SeriesTow seriesTow = new SeriesTow();
-            SeriesToPrintFiveNums(seriesTow);
+            //SeriesOne seriesOne = new SeriesOne();   
+            ////SeriesToPrintFiveNums(seriesOne);
+            //SeriesTow seriesTow = new SeriesTow();
+            //SeriesToPrintFiveNums(seriesTow);
+
+            #endregion
+
+            #region Ex 02 Interface
+            //Car car = new Car();
+            //car.Speed= 100;
+            //car.Forward();
+            //car.Backward();
+            //car.Left();
+            //car.Right();
+            //AirPlane airPlane = new AirPlane();
+            //airPlane.Speed= 600;
+            //airPlane.Forward();
+            //airPlane.Backward();
+            //airPlane.Left();
+            //airPlane.Right();
+
+            //IMoveOnAir moveOnAir = new AirPlane();
+            //IMoveOnGround moveOnGround = new Car();
+            //IMoveOnGround moveOnGround2 = new AirPlane();
+
+            //moveOnGround2.Backward();
 
             #endregion
 
