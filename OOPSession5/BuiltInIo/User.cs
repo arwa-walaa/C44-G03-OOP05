@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOPSession5.BuiltInIo
 {
-    internal class User : ICloneable
+    internal class User : ICloneable,IComparable<User>
     {
         public int Id { get; set; }
         public string? Name { get; set; }
@@ -20,6 +20,25 @@ namespace OOPSession5.BuiltInIo
                 Name = this.Name,
                 Salary = this.Salary
             };
+        }
+
+        public int CompareTo(User? other)
+        {
+            //+ve =1 this.Salary > other.Salary
+            //-ve =-1 this.Salary < other.Salary
+            //0 = 0 this.Salary == other.Salary
+            if (this.Salary > other?.Salary) 
+            {
+                return 1;
+            }
+            else if (this.Salary < other?.Salary)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public override string ToString()
         {

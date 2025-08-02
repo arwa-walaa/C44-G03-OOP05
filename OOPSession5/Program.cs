@@ -125,37 +125,72 @@ namespace OOPSession5
             #region Built-in Interfaces
 
             #region IClonble
-            User user01 = new User
-            {
-                Id = 1,
-                Name = "John Doe",
-                Salary = 50000
-            };
-            User user02 = new User
-            {
-                Id = 2,
-                Name = "Alaa",
-                Salary = 60000
-            };
+            //User user01 = new User
+            //{
+            //    Id = 1,
+            //    Name = "John Doe",
+            //    Salary = 50000
+            //};
+            //User user02 = new User
+            //{
+            //    Id = 2,
+            //    Name = "Alaa",
+            //    Salary = 60000
+            //};
 
-            Console.WriteLine($"User 01: {user01.GetHashCode()}");
-            Console.WriteLine($"User 02: {user02.GetHashCode()}");
-            Console.WriteLine($"User 01: {user01}");
-            Console.WriteLine($"User 02: {user02}");
+            //Console.WriteLine($"User 01: {user01.GetHashCode()}");
+            //Console.WriteLine($"User 02: {user02.GetHashCode()}");
+            //Console.WriteLine($"User 01: {user01}");
+            //Console.WriteLine($"User 02: {user02}");
 
-            // Cloning user01
-            user02=(User) user01.Clone() ;
-             Console.WriteLine("After Cloning User 01 to User 02");
-            Console.WriteLine($"User 01: {user01.GetHashCode()}");
-            Console.WriteLine($"User 02: {user02.GetHashCode()}");
-            Console.WriteLine($"User 01: {user01}");
-            Console.WriteLine($"User 02: {user02}");
+            //// Cloning user01
+            //user02=(User) user01.Clone() ;
+            // Console.WriteLine("After Cloning User 01 to User 02");
+            //Console.WriteLine($"User 01: {user01.GetHashCode()}");
+            //Console.WriteLine($"User 02: {user02.GetHashCode()}");
+            //Console.WriteLine($"User 01: {user01}");
+            //Console.WriteLine($"User 02: {user02}");
 
             //clone() : Creates a new object that is a copy of the current instance.
 
 
             #endregion
+
+            #region IComparable
+
+            int[] numbers = { 6,3,1,2,5,4 };
+
+            User[] users = {
+                new User { Id = 10, Name = "Alice", Salary = 70000 },
+                new User { Id = 20, Name = "Bob", Salary = 50000 },
+                new User { Id = 30, Name = "Charlie", Salary = 60000 },
+                new User { Id = 40, Name = "ALi", Salary = 15000 }
+            };
+
+            Array.Sort(users);
+
+            ////Array.Sort(numbers);
+            //foreach (User user in users)
+            //{
+            //    Console.WriteLine(user);
+            //}
+
             #endregion
+
+            #region IComparer
+
+            //sort pased on name
+            Array.Sort(users, new UserNameComparer());
+
+            foreach (User user in users)
+            {
+                Console.WriteLine(user);
+            }
+
+            #endregion
+
+            #endregion
+
         }
     }
 }
