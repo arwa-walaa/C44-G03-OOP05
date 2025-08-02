@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            #region Question 01
+          
+            IShape circle = new Circle(5);
+            circle.DisplayShapeInfo();
+
+            IShape rectangle = new Rectangle(4, 6);
+            rectangle.DisplayShapeInfo();
+           
+            #endregion
         }
     }
 }
